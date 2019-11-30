@@ -1,0 +1,4 @@
+.project
+.settings
+/**/*.properties
+*.log

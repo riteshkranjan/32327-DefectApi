@@ -1,0 +1,22 @@
+server:
+  port: 1111
+
+spring:
+  application:
+    name: eureka
+
+eureka:
+  dashboard:
+    enabled: true
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:1111/eureka  
+
+logging:
+  file:
+    path: /tmp/defect-api/discovery-server
+  level:
+    root: debug
+      

@@ -1,0 +1,449 @@
+{
+	"info": {
+		"_postman_id": "dd34fcdb-d8e6-4190-8490-36ca219a09cb",
+		"name": "InfosysDefectApp",
+		"description": "As part of STG final project submission",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth-service",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"ritesh1\",\n\t\"name\": \"ritesh one\",\n\t\"emailId\": \"ritesh@infy.com\",\n\t\"password\": \"abcd1234\",\n\t\"phoneNumber\": 9915761136,\n\t\"address\": \"panchkula HR 134226\"\n\t\n\t\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8001/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"ritesh1\",\n\t\"password\": \"abcd1234\"\n\t\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8001/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/auth/profile/ritesh1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"auth",
+								"profile",
+								"ritesh1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "defect-service",
+			"item": [
+				{
+					"name": "add defect",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"defectDetails\": \"product is faulty3\",\r\n  \"insertedBy\": \"ritesh2\",\r\n  \"prodName\": \"MI phones3\",\r\n  \"yearOfPurchase\": 2019\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8002/defect",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"defect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get defect by defectId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/defect/e7a355f6-4f68-4465-ba83-5a57f89a2d9d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"defect",
+								"e7a355f6-4f68-4465-ba83-5a57f89a2d9d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get defect by userid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/defect/user/ritesh1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"defect",
+								"user",
+								"ritesh1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update defect",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8002/defect/e7a355f6-4f68-4465-ba83-5a57f89a2d9d/cancelled",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8002",
+							"path": [
+								"defect",
+								"e7a355f6-4f68-4465-ba83-5a57f89a2d9d",
+								"cancelled"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "user-profile",
+			"item": [
+				{
+					"name": "view profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8003/profile/ritesh1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"profile",
+								"ritesh1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "config-server",
+			"item": [
+				{
+					"name": "get property",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://configserver:configserver@localhost:9191/defect-api-gateway/default",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"auth": {
+								"user": "configserver",
+								"password": "configserver"
+							},
+							"port": "9191",
+							"path": [
+								"defect-api-gateway",
+								"default"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "api-gateway",
+			"item": [
+				{
+					"name": "register Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"ritesh2\",\n\t\"name\": \"ritesh one\",\n\t\"emailId\": \"ritesh@infy.com\",\n\t\"password\": \"abcd1234\",\n\t\"phoneNumber\": 9915761136,\n\t\"address\": \"panchkula HR 134226\"\n\t\n\t\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": \"ritesh1\",\n\t\"password\": \"abcd1234\"\n\t\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search profile Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/auth/profile/ritesh1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"profile",
+								"ritesh1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add defect Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"defectDetails\": \"product is faulty\",\r\n  \"insertedBy\": \"ritesh1\",\r\n  \"prodName\": \"MI phones\",\r\n  \"yearOfPurchase\": 2019\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/defect",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"defect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get defect by defectId Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/defect/1541ac39-454d-4afd-a78c-a63545a45613",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"defect",
+								"1541ac39-454d-4afd-a78c-a63545a45613"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get defect by userid Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/defect/user/ritesh1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"defect",
+								"user",
+								"ritesh1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update defect Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/defect/1541ac39-454d-4afd-a78c-a63545a45613/Closed",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"defect",
+								"1541ac39-454d-4afd-a78c-a63545a45613",
+								"Closed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view profile Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/profile/ritesh1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profile",
+								"ritesh1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

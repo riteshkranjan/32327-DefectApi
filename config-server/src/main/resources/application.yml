@@ -1,0 +1,13 @@
+server:
+  port: 9191
+  
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/riteshkranjan/defect-app-config.git  security:    user:      name: configserver      password: configserver
+logging:  file:    path: /tmp/defect-api/config-server
+  level:    root: debug
